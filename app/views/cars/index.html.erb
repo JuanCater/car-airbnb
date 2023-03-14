@@ -3,7 +3,7 @@
 
 <ul>
   <% @cars.each do |car| %>
-    <li><%= link_to car.name, car_path(car)%></i>
+    <li><%= link_to car.model, car_path(car)%></i>
   <% end %>
 </ul>
 
