@@ -2,7 +2,5 @@
 <%= simple_form_for [@car, @reservation] do |f| %>
   <%= f.input :rented_from %>
   <%= f.input :rented_until %>
-  <%= f.association :car %>
-  <%= f.association :user %>
   <%= f.button :submit %>
 <% end %>

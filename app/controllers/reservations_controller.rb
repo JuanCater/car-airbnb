@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController\
-  before_action :set_car, only: %i[new create]
+  #before_action :set_car, only: %i[new create]
   # before_action :set_movie, only: %i[new create]
   def index
     @restaurants = policy_scope(reservation)
@@ -7,8 +7,10 @@ class ReservationsController < ApplicationController\
 
   def new
     # We need @restaurant in our `simple_form_for`
-    authorize @reservation
+
+    @car = Car.find(params[:car_id])
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def create
@@ -16,10 +18,11 @@ class ReservationsController < ApplicationController\
     # @review.restaurant = @restaurant
     # @review.save
     # redirect_to restaurant_path(@restaurant)
-    @reservation = reservation.new(reservation_params)
+    @car = Car.find(params[:car_id])
+    @reservation = Reservation.new(reservation_params)
     @reservation.car = @car
-
-    @reservation.car_id = params[:reservation][:car_id]
+    @reservation.status = "pending"
+    @reservation.user = current_user
     authorize @reservation
     if @reservation.save
       redirect_to car_path(@car)
@@ -42,6 +45,6 @@ class ReservationsController < ApplicationController\
   end
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :car_id, :rented_from, :rented_until)
+    params.require(:reservation).permit(:rented_from, :rented_until)
   end
 end
