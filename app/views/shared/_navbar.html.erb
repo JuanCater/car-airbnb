@@ -1,14 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="main navbar navbar-expand-sm navbar-light navbar-lewagon bg-dark fixed-top">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-brand ms-4">
+      <%= link_to "#" do %>
+        <%= image_tag("https://1000marcas.net/wp-content/uploads/2020/10/Proton-logo.png", alt: "Logo") %>
+      <% end %>
+    </div>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
@@ -20,6 +21,11 @@
             <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -29,11 +35,23 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li class="nav-item  SMN_effect-48">
+            <%= link_to "Contact", "mailto:example@example.com", class: "nav-link text-light" %>
           </li>
+          <li class="nav-item  SMN_effect-48 mx-4">
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-light" %>
+          </li>
+          <form class="d-flex search me-4">
+            <input class="form-control me-2" type="search" placeholder="Search cars..." aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
+
+<div class="back color-8">
+    <div class="row columns">
+      <h3>Effect 48</h3>
+      <ul class="menu align-center expanded text-center SMN_effect-48">
