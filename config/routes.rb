@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :cars do
     resources :reservations, only: [:new, :create]
+    collection do
+      get :my_cars
+    end
   end
   resources :reservations, only: [:destroy, :index]
 end

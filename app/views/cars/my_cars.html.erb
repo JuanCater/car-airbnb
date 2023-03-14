@@ -1,0 +1,10 @@
+<h1>My Cars</h1>
+
+
+<ul>
+  <% @cars.each do |car| %>
+    <li><%= link_to car.model, car_path(car)%></i>
+  <% end %>
+</ul>
+
+<p class="btn btn-warning"><%= link_to "Create new car", new_car_path%></a>

@@ -6,6 +6,11 @@ class CarsController < ApplicationController
     @cars = policy_scope(Car)
   end
 
+  def my_cars
+    @cars = current_user.cars
+    authorize @cars
+  end
+
   def show
     authorize @car
   end
@@ -50,7 +55,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year, :user_id, photos: [])
+    params.require(:car).permit(:brand, :model, :year, :user_id, :price, photos: [])
   end
-
 end
