@@ -1,4 +1,6 @@
-<%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary"%>
+<% if policy(@car).edit? %>
+  <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary" %> |
+<% end %>
 
 
 <h2><%= @car.brand %></h2>
@@ -9,6 +11,7 @@
 <% end %>
 
 
+<%= button_to "Destroy this car", @car, method: :delete if policy(@car).destroy? %>
 
 
 
