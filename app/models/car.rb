@@ -8,4 +8,5 @@ class Car < ApplicationRecord
   validates :year, presence: true
   validates :model, presence: true
   validates :brand, presence: true
+  validates :price, presence: true
 end

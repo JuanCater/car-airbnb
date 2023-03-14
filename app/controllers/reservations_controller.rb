@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController\
   #before_action :set_car, only: %i[new create]
   # before_action :set_movie, only: %i[new create]
   def index
-    @restaurants = policy_scope(reservation)
+    @reservations = policy_scope(Reservation)
   end
 
   def new

@@ -9,6 +9,10 @@ class CarPolicy < ApplicationPolicy
     end
   end
 
+  def my_cars?
+    true
+  end
+
   def show?
     true
   end
