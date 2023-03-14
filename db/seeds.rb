@@ -15,7 +15,7 @@ puts 'Creating 10 fake cars...'
     brand: Faker::Vehicle.manufacture,
     model: Faker::Vehicle.make_and_model,
     year:  Faker::Vehicle.year,
-    user_id: test_user.id
+    user_id: test_user.id,
     price: 1
   )
   car.save!
