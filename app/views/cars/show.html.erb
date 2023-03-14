@@ -14,6 +14,20 @@
 
 <%= button_to "Destroy this car", @car, method: :delete if policy(@car).destroy? %>
 
+<% if @car.user == current_user %>
+  <h1>Reservations for this car</h1>
+    <%@car.reservations.each do |reservation| %>
+      <div class="card">
+        <p>Brand: <%= reservation.car.brand %></p>
+        <p>Model: <%= reservation.car.model %></p>
+        <p>Year: <%= reservation.car.year %></p>
+        <p>Owner: <%= reservation.car.user.email %></p>
+        <p>Rented from: </p> <%= reservation.rented_from%>
+        <p>Rented until: </p> <%= reservation.rented_until%>
+        <p>Status: <%= reservation.status %></p>
+      </div>
+    <%end %>
+<%end %>
 
 
 <%= link_to "Request to reserve this car", new_car_reservation_path(@car), class: "btn btn-primary" if @car.user != current_user %>
