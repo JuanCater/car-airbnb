@@ -1,8 +1,12 @@
 <h1>My reservations</h1>
 <%@reservations.each do |reservation| %>
-  <p>Brand: <%= reservation.car.brand %></p>
-  <p>Model: <%= reservation.car.model %></p>
-  <p>Year: <%= reservation.car.year %></p>
-  <p>Owner: <%= reservation.car.user.email %></p>
-  <p>Rented until: </p> <%= reservation.rented_until%>
+  <div class="card">
+    <p>Brand: <%= reservation.car.brand %></p>
+    <p>Model: <%= reservation.car.model %></p>
+    <p>Year: <%= reservation.car.year %></p>
+    <p>Owner: <%= reservation.car.user.email %></p>
+    <p>Rented from: </p> <%= reservation.rented_from%>
+    <p>Rented until: </p> <%= reservation.rented_until%>
+    <p>Status: <%= reservation.status %></p>
+  </div>
 <%end %>
