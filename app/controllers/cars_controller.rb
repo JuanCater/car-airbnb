@@ -3,19 +3,22 @@ class CarsController < ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
 
   def index
-    @cars = Car.all
+    @cars = policy_scope(Car)
   end
 
   def show
+    authorize @car
   end
 
   def new
     @car = Car.new
+    authorize @car
   end
 
   def create
     @car = Car.new(car_params)
     @car.user = current_user
+    authorize @car
     if @car.save # Will raise ActiveModel::ForbiddenAttributesError
       redirect_to car_path(@car)
     else
@@ -24,14 +27,17 @@ class CarsController < ApplicationController
   end
 
   def edit
+    authorize @car
   end
 
   def update
+    authorize @car
     @car.update(car_params) # Will raise ActiveModel::ForbiddenAttributesError
     redirect_to car_path(@car)
   end
 
   def destroy
+    authorize @car
     @car.destroy
     # No need for app/views/cars/destroy.html.erb
     redirect_to cars_path, status: :see_other

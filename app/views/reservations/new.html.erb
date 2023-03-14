@@ -1,0 +1,6 @@
+<h1>New Reservation Request</h1>
+<%= simple_form_for [@car, @reservation] do |f| %>
+  <%= f.input :rented_from %>
+  <%= f.input :rented_until %>
+  <%= f.button :submit %>
+<% end %>
