@@ -1,0 +1,26 @@
+.footer{
+  -webkit-box-shadow: 0px -2px 14px -5px rgba(0,0,0,0.39);
+  -moz-box-shadow: 0px -2px 14px -5px rgba(0,0,0,0.39);
+  box-shadow: 0px -2px 14px -5px rgba(0,0,0,0.39);
+  bottom: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+.icons a{
+  background-color: #2e2727;
+}
+.icons .facebook-icon:hover  {
+  background-color: #3b5998;
+}
+.icons .twitter-icon:hover  {
+  background-color: #55acee;
+}
+.icons .instagram-icon:hover  {
+  background-color: #ac2b3e;
+}
+// a:hover .twitter-icon{
+//   background-color: #55acee;
+// }
+// a:hover .instagram-icon{
+//   background-color: #ac2b54;
+// }
