@@ -15,6 +15,7 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
+    @car.user = current_user
     if @car.save # Will raise ActiveModel::ForbiddenAttributesError
       redirect_to car_path(@car)
     else
