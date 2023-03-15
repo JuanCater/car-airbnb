@@ -7,37 +7,74 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
-users = User.all
+require "open-uri"
+users = []
+User.destroy_all
+5.times do
+  email = "#{Faker::Name.first_name}@hotmail.com"
+  user = User.new(password: "123456", email:email)
+  user.save!
+  users << user
+end
 
-puts 'Creating 3 fake cars...'
+puts 'Creating 5 fake cars...'
 Car.destroy_all
-  car = Car.new(
-    brand: Faker::Vehicle.manufacture,
-    model: Faker::Vehicle.make_and_model,
-    year:  Faker::Vehicle.year,
+  car1 = Car.new(
+    brand: "Ford",
+    model: "F150",
+    year:  "2020",
     user_id: users.sample.id,
     address: "Humboldt 1967 Buenos Aires Argentina", #=> "282 Kevin Brook",
     price: 200_00
   )
-  car.save!
-
-  car = Car.new(
-    brand: Faker::Vehicle.manufacture,
-    model: Faker::Vehicle.make_and_model,
-    year:  Faker::Vehicle.year,
+file = URI.open("https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicle-groups/trucks/04-images/2023-colorado-segment.jpg?imwidth=960")
+car1.photos.attach(io: file, filename: "truck.png", content_type: "image/png")
+car1.save!
+  car2 = Car.new(
+    brand: "BMW",
+    model: "X5",
+    year:  "2018",
     user_id: users.sample.id,
-    address: "Rua Jerico 193 Sao Paulo Brazil", #=> "282 Kevin Brook",
+    address: "29 Shore Lane Bay Shore United States", #=> "282 Kevin Brook",
     price: 200_00
   )
-  car.save!
+  file = URI.open("https://i.ytimg.com/vi/zvLzWDqoOdI/maxresdefault.jpg")
+  car2.photos.attach(io: file, filename: "bmw.png", content_type: "image/png")
+  car2.save!
 
-  car = Car.new(
-    brand: Faker::Vehicle.manufacture,
-    model: Faker::Vehicle.make_and_model,
-    year:  Faker::Vehicle.year,
+  car3 = Car.new(
+    brand: "Volvo",
+    model: "XC-90",
+    year:  "2006",
     user_id: users.sample.id,
-    address: "16 Villa Gaudelet, Paris", #=> "282 Kevin Brook",
+    address: "Rua Jerico 195 Sao Paulo Brazil", #=> "282 Kevin Brook",
     price: 200_00
   )
-  car.save!
+  file = URI.open("https://www.topgear.com/sites/default/files/cars-car/image/2019/10/258012_updated_volvo_xc90.jpg?w=1280&h=720")
+  car3.photos.attach(io: file, filename: "volvo.png", content_type: "image/png")
+  car3.save!
+
+  car4 = Car.new(
+    brand: "Jeep",
+    model: "Wrangler",
+    year:  "2009",
+    user_id: users.sample.id,
+    address: "7150 East Thomas Road Scottsdale United States", #=> "282 Kevin Brook",
+    price: 200_00
+  )
+  file = URI.open("https://images.cars.com/cldstatic/wp-content/uploads/jeep-wrangler-willys-4xe-2023-exterior-oem-02.jpg")
+  car4.photos.attach(io: file, filename: "jeep.png", content_type: "image/png")
+  car4.save!
+
+  car5 = Car.new(
+    brand: "Porsche",
+    model: "Panamera",
+    year:  "2010",
+    user_id: users.sample.id,
+    address: "1288 Massachusetts Avenue Cambridge United States", #=> "282 Kevin Brook",
+    price: 200_00
+  )
+  file = URI.open("https://hips.hearstapps.com/hmg-prod/images/2023-porsche-panamera-turbo-s-102-1671562605.jpg?crop=0.761xw:0.856xh;0.106xw,0.0513xh&resize=640:*")
+  car5.photos.attach(io: file, filename: "prosche.png", content_type: "image/png")
+  car5.save!
 puts 'Finished!'
