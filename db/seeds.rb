@@ -7,9 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
-users = User.all
 require "open-uri"
-
+users = []
+User.destroy_all
+5.times do
+  email = "#{Faker::Name.first_name}@hotmail.com"
+  user = User.new(password: "123456", email:email)
+  user.save!
+  users << user
+end
 puts 'Creating 5 fake cars...'
 Car.destroy_all
   car1 = Car.new(
@@ -28,7 +34,7 @@ car1.save!
     model: "X5",
     year:  "2018",
     user_id: users.sample.id,
-    address: "Rua Jerico 193 Sao Paulo Brazil", #=> "282 Kevin Brook",
+    address: "29 Shore Lane Bay Shore United States", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://i.ytimg.com/vi/zvLzWDqoOdI/maxresdefault.jpg")
@@ -40,7 +46,7 @@ car1.save!
     model: "XC-90",
     year:  "2006",
     user_id: users.sample.id,
-    address: "5900 East Thomas Road, Scottsdale", #=> "282 Kevin Brook",
+    address: "5900 East Thomas Road Scottsdale United States", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://www.topgear.com/sites/default/files/cars-car/image/2019/10/258012_updated_volvo_xc90.jpg?w=1280&h=720")
@@ -52,7 +58,7 @@ car1.save!
     model: "Wrangler",
     year:  "2009",
     user_id: users.sample.id,
-    address: "Memphis", #=> "282 Kevin Brook",
+    address: "7150 East Thomas Road Scottsdale United States", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://images.cars.com/cldstatic/wp-content/uploads/jeep-wrangler-willys-4xe-2023-exterior-oem-02.jpg")
@@ -64,7 +70,7 @@ car1.save!
     model: "Panamera",
     year:  "2010",
     user_id: users.sample.id,
-    address: "Stellar air park", #=> "282 Kevin Brook",
+    address: "1288 Massachusetts Avenue Cambridge United States", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://hips.hearstapps.com/hmg-prod/images/2023-porsche-panamera-turbo-s-102-1671562605.jpg?crop=0.761xw:0.856xh;0.106xw,0.0513xh&resize=640:*")
