@@ -6,27 +6,24 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="navbar-brand ms-4">
-      <%= link_to "#" do %>
+      <%= link_to root_path do %>
         <%= image_tag("https://1000marcas.net/wp-content/uploads/2020/10/Proton-logo.png", alt: "Logo") %>
       <% end %>
     </div>
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-4">
         <% if user_signed_in? %>
-          <li class="nav-item link_log SMN_effect-48">
-            <button class="btn " type="submit"><%= link_to "Reservations", reservations_path%></button>
+              <li class="nav-item  SMN_effect-48">
+            <%= link_to "Reservations", reservations_path, class: "nav-link text-light" %>
           </li>
-            <li class="nav-item SMN_effect-48">
-            <button class="btn" type="submit"><%= link_to "Cars",my_cars_cars_path%></button>
+          <li class="nav-item  SMN_effect-48 mx-4">
+            <%= link_to "Cars", my_cars_cars_path, class: "nav-link text-light" %>
           </li>
-            <li class="nav-item SMN_effect-48">
-            <button class="btn" type="submit"><%= link_to "Home", root_path%></button>
-          </li>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <form class="d-flex search me-4">
+            <input class="form-control me-2" type="search" placeholder="Search cars..." aria-label="Search">
               <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown ms-4 me-4">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
