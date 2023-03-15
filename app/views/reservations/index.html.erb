@@ -1,13 +1,23 @@
-<h1>My reservations</h1>
-<%@reservations.each do |reservation| %>
-  <div class="card">
-    <p>Brand: <%= reservation.car.brand %></p>
-    <p>Model: <%= reservation.car.model %></p>
-    <p>Year: <%= reservation.car.year %></p>
-    <p>Owner: <%= reservation.car.user.email %></p>
-    <p>Rented from: </p> <%= reservation.rented_from%>
-    <p>Rented until: </p> <%= reservation.rented_until%>
-    <p>Status: <%= reservation.status %></p>
-    <p><%= link_to "View this car", car_path(reservation.car)%></p>
-  </div>
-<%end %>
+<div class="container">
+  <h1>My reservations</h1>
+
+    <%@reservations.each do |reservation| %>
+      <div class="d-flex justify-content-around border border-primary p-2">
+        <span class="align-self-center">
+          <p>Brand: <%= reservation.car.brand %></p>
+          <p>Model: <%= reservation.car.model %></p>
+          <p>Year: <%= reservation.car.year %></p>
+          <p>Owner: <%= reservation.car.user.email %></p>
+          <p>Rental date: <%= reservation.rented_from%></p>
+          <p>Return date: <%= reservation.rented_until%></p>
+          <p>Status: <%= reservation.status %></p>
+          <p><%= link_to "View this car", car_path(reservation.car)%></p>
+        </span>
+        <div class="d-flex justify-content-between">
+          <% @car = reservation.car  %>
+          <%=  cl_image_tag @car.photos.first.key, height: 300, width: 400, crop: :fill  %>
+        </div>
+      </div>
+    <%end %>
+    </div>
+</div>
