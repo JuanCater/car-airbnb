@@ -1,21 +1,26 @@
 <div class="container-fluid p-0">
-  <div class="row vh-100 align-items-center justify-content-center">
-    <div class="container-2" style="max-width:400px;">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.input :email,
+    <div class="row vh-100 align-items-center justify-content-center">
+      <div class="container-2" style="max-width:400px;">
+        <div class="col text-center">
+          <img class="mb-5 w-75" src="https://1000marcas.net/wp-content/uploads/2020/10/Proton-logo.png">
+         </div>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.input :email,
+          required: false,
+          autofocus: true,
+          input_html: { autocomplete: "email" },
+          class: "input" %>
+        <%= f.input :password,
         required: false,
-        autofocus: true,
-        input_html: { autocomplete: "email" },
+        input_html: { autocomplete: "current-password" },
         class: "input" %>
-      <%= f.input :password,
-      required: false,
-      input_html: { autocomplete: "current-password" },
-      class: "input" %>
+        <div class="d-grid gap-2 my-3">
+          <%= f.button :submit, "Log in", class: "btn btn-dark text-light" %>
+        </div>
+      <% end %>
       <div class="d-grid gap-2 my-3">
-        <%= f.button :submit, "Log in", class: "btn btn-dark text-light" %>
-      </div>
-    <% end %>
-    <div class="d-grid gap-2 my-3">
-    <%= render "devise/shared/links" %>
-    <div>
+      <%= render "devise/shared/links" %>
+      <div>
     </div>
+  </div>
+</div>
