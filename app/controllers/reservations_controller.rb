@@ -28,9 +28,14 @@ class ReservationsController < ApplicationController\
 
   def update
     @reservation = Reservation.find(params[:id])
+    @car = @reservation.car
     authorize @reservation
     @reservation.update(reservation_params) # Will raise ActiveModel::ForbiddenAttributesError
-    redirect_to reservations_path
+    if @reservation.car.user == current_user
+      redirect_to car_path(@car)
+    else
+      redirect_to reservations_path
+    end
   end
 
   def create
@@ -65,6 +70,6 @@ class ReservationsController < ApplicationController\
   end
 
   def reservation_params
-    params.require(:reservation).permit(:rented_from, :rented_until)
+    params.require(:reservation).permit(:rented_from, :rented_until, :status)
   end
 end

@@ -22,6 +22,7 @@
         <p>Date of Rental: <%= reservation.rented_from%></p>
         <p>Date of return: <%= reservation.rented_until%></p>
         <p>Status: <%= reservation.status %></p>
+        <%= link_to "Edit my reservation", edit_car_reservation_path(@car, reservation), class: "btn btn-primary" %>
       </div>
     <%end %>
 <%end %>
