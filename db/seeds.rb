@@ -16,6 +16,7 @@ User.destroy_all
   user.save!
   users << user
 end
+
 puts 'Creating 5 fake cars...'
 Car.destroy_all
   car1 = Car.new(
@@ -46,7 +47,7 @@ car1.save!
     model: "XC-90",
     year:  "2006",
     user_id: users.sample.id,
-    address: "5900 East Thomas Road Scottsdale United States", #=> "282 Kevin Brook",
+    address: "Rua Jerico 195 Sao Paulo Brazil", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://www.topgear.com/sites/default/files/cars-car/image/2019/10/258012_updated_volvo_xc90.jpg?w=1280&h=720")
