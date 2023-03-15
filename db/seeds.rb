@@ -40,7 +40,7 @@ car1.save!
     model: "XC-90",
     year:  "2006",
     user_id: users.sample.id,
-    address: "5900 East Thomas Road, Scottsdale", #=> "282 Kevin Brook",
+    address: "Rua Jerico 195 Sao Paulo Brazil", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://www.topgear.com/sites/default/files/cars-car/image/2019/10/258012_updated_volvo_xc90.jpg?w=1280&h=720")
@@ -52,7 +52,7 @@ car1.save!
     model: "Wrangler",
     year:  "2009",
     user_id: users.sample.id,
-    address: "Memphis", #=> "282 Kevin Brook",
+    address: "Humboldt 1967 Buenos Aires Argentina", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://images.cars.com/cldstatic/wp-content/uploads/jeep-wrangler-willys-4xe-2023-exterior-oem-02.jpg")
@@ -64,7 +64,7 @@ car1.save!
     model: "Panamera",
     year:  "2010",
     user_id: users.sample.id,
-    address: "Stellar air park", #=> "282 Kevin Brook",
+    address: "Humboldt 1969 Buenos Aires Argentina", #=> "282 Kevin Brook",
     price: 200_00
   )
   file = URI.open("https://hips.hearstapps.com/hmg-prod/images/2023-porsche-panamera-turbo-s-102-1671562605.jpg?crop=0.761xw:0.856xh;0.106xw,0.0513xh&resize=640:*")
