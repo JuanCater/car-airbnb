@@ -18,15 +18,28 @@
   <h1>Reservations for this car</h1>
     <%@car.reservations.each do |reservation| %>
       <div class="card">
-        <p>Brand: <%= reservation.car.brand %></p>
-        <p>Model: <%= reservation.car.model %></p>
-        <p>Year: <%= reservation.car.year %></p>
-        <p>Owner: <%= reservation.car.user.email %></p>
-        <p>Rented from: </p> <%= reservation.rented_from%>
-        <p>Rented until: </p> <%= reservation.rented_until%>
+        <p>Requested by: <%= reservation.user.email %></p>
+        <p>Date of Rental: <%= reservation.rented_from%></p>
+        <p>Date of return: <%= reservation.rented_until%></p>
         <p>Status: <%= reservation.status %></p>
+        <%= link_to "Edit my reservation", edit_car_reservation_path(@car, reservation), class: "btn btn-primary" %>
       </div>
     <%end %>
+<%end %>
+
+<% @car.reservations.each do |reservation| %>
+  <% if reservation.user == current_user %>
+      <h1>My Reservations for this car</h1>
+      <%@car.reservations.each do |reservation| %>
+        <div class="card">
+          <p>Owner: <%= reservation.car.user.email %></p>
+          <p>Date of Rental: <%= reservation.rented_from%></p>
+          <p>Date of Return: <%= reservation.rented_until%></p>
+          <p>Status: <%= reservation.status %></p>
+          <%= link_to "Edit my reservation", edit_car_reservation_path(@car, reservation), class: "btn btn-primary" %>
+        </div>
+    <%end %>
+  <%end %>
 <%end %>
 
 

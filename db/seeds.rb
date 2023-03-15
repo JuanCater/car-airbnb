@@ -7,16 +7,37 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
-test_user = User.create!(password: "123456", email: "bellebrown619@gmail.com")
+users = User.all
 
-puts 'Creating 10 fake cars...'
-10.times do
+puts 'Creating 3 fake cars...'
+Car.destroy_all
   car = Car.new(
     brand: Faker::Vehicle.manufacture,
     model: Faker::Vehicle.make_and_model,
     year:  Faker::Vehicle.year,
-    user_id: test_user.id
+    user_id: users.sample.id,
+    address: "Humboldt 1967 Buenos Aires Argentina", #=> "282 Kevin Brook",
+    price: 200_00
   )
   car.save!
-end
+
+  car = Car.new(
+    brand: Faker::Vehicle.manufacture,
+    model: Faker::Vehicle.make_and_model,
+    year:  Faker::Vehicle.year,
+    user_id: users.sample.id,
+    address: "Rua Jerico 193 Sao Paulo Brazil", #=> "282 Kevin Brook",
+    price: 200_00
+  )
+  car.save!
+
+  car = Car.new(
+    brand: Faker::Vehicle.manufacture,
+    model: Faker::Vehicle.make_and_model,
+    year:  Faker::Vehicle.year,
+    user_id: users.sample.id,
+    address: "16 Villa Gaudelet, Paris", #=> "282 Kevin Brook",
+    price: 200_00
+  )
+  car.save!
 puts 'Finished!'
