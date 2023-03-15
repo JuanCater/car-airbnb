@@ -2,19 +2,18 @@
   flex-grow: 0;
 }
 
-.nav-item:hover{
-  background-color: red($color: #bd2d2db9);
-}
-
 .navbar-brand img{
   width: 7%;
 }
-li:hover{
-  color: rgb(202, 202, 202);
-}
+
 .search{
   height: 40px;
   width: 270px;
+}
+.search .form-control:focus{
+border-color: #ffffff;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #ffffff;
+outline: 0 none;
 }
 
 .SMN_effect-48 a {
@@ -60,5 +59,13 @@ li:hover{
 }
 
 .link_log{
+  text-decoration: none;
+}
+
+.dropdown:hover{
+cursor: pointer;
+}
+
+.navbar-nav a {
   text-decoration: none;
 }
