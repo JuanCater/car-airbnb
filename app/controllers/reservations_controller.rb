@@ -5,12 +5,32 @@ class ReservationsController < ApplicationController\
     @reservations = policy_scope(Reservation)
   end
 
+  def show
+    @reservation = Reservation.find(params[:reservation_id])
+    @car = Car.find(params[:car_id])
+    authorize @reservation
+  end
+
   def new
     # We need @restaurant in our `simple_form_for`
 
     @car = Car.find(params[:car_id])
     @reservation = Reservation.new
     authorize @reservation
+  end
+
+  def edit
+    @reservation = Reservation.find(params[:id])
+    @car = @reservation.car
+    @user = current_user
+    authorize @reservation
+  end
+
+  def update
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.update(reservation_params) # Will raise ActiveModel::ForbiddenAttributesError
+    redirect_to reservations_path
   end
 
   def create
