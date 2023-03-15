@@ -1,27 +1,33 @@
-<h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class="container-fluid p-0">
+    <div class="row vh-100 align-items-center justify-content-center">
+      <div class="container-2" style="max-width:400px;">
+        <div class="col text-center">
+          <img class="mb-5 w-75" src="https://1000marcas.net/wp-content/uploads/2020/10/Proton-logo.png">
+         </div>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+         <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+                input_html: { autocomplete: "email" },
+                class: "input" %>
+        <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                class: "input" %>
+        <%= f.input :password_confirmation,
+              required: true,
+              input_html: { autocomplete: "new-password" },
+              class: "input" %>
+        <div class="d-grid gap-2 my-3">
+          <%= f.button :submit, "Sign Up", class: "btn btn-dark text-light" %>
+        </div>
+      <% end %>
+      <div class="d-grid gap-2 my-3">
+      <%= render "devise/shared/links" %>
+      <div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-<%= link_to "Go back to home page", root_path %>
+</div>

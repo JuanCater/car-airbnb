@@ -4,6 +4,7 @@
         <div class="col text-center">
           <img class="mb-5 w-75" src="https://1000marcas.net/wp-content/uploads/2020/10/Proton-logo.png">
          </div>
+         
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= f.input :email,
           required: false,
