@@ -5,9 +5,11 @@
   <h1>Request to Edit My Reservation</h1>
 <% end %>
 
-
 <%= simple_form_for [@car, @reservation] do |f| %>
   <%= f.input :rented_from %>
   <%= f.input :rented_until %>
+    <% if @car.user == current_user %>
+  <%= f.input :status, collection: ["pending", "accepted", "denied"] %>
+  <% end %>
   <%= f.button :submit %>
 <% end %>
