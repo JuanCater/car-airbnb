@@ -12,4 +12,5 @@ class Car < ApplicationRecord
   validates :model, presence: true
   validates :brand, presence: true
   validates :price, presence: true
+  validates :address, presence: true
 end
