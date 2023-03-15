@@ -4,6 +4,13 @@ class CarsController < ApplicationController
 
   def index
     @cars = policy_scope(Car)
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { car: car })
+      }
+    end
   end
 
   def my_cars
