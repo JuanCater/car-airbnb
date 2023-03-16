@@ -32,6 +32,6 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.user == user || record.car.user == user
   end
 end
