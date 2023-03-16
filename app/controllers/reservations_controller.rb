@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController\
+class ReservationsController < ApplicationController
   #before_action :set_car, only: %i[new create]
   # before_action :set_movie, only: %i[new create]
   def index
@@ -13,7 +13,6 @@ class ReservationsController < ApplicationController\
 
   def new
     # We need @restaurant in our `simple_form_for`
-
     @car = Car.find(params[:car_id])
     @reservation = Reservation.new
     authorize @reservation

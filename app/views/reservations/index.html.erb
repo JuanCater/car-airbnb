@@ -12,6 +12,9 @@
           <p>Return date: <%= reservation.rented_until%></p>
           <p>Status: <%= reservation.status %></p>
           <p><%= link_to "View this car", car_path(reservation.car)%></p>
+          <% if reservation.status == "pending" || reservation.status == "denied"%>
+            <p><%= link_to "Delete this reservation", root_path %></p>
+          <%end %>
         </span>
         <div class="d-flex justify-content-between">
           <% @car = reservation.car  %>
