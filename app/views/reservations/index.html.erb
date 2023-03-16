@@ -1,5 +1,5 @@
+<h1>My reservations</h1>
 <div class="container">
-  <h1>My reservations</h1>
     <%@reservations.each do |reservation| %>
       <% if reservation.status == "accepted" %>
       <div class="rounded d-flex justify-content-around border m-2 p-2 border-success">
@@ -26,7 +26,6 @@
     </div>
 </div>
 <div class="container">
-  <h1>My reservations</h1>
     <%@reservations.each do |reservation| %>
     <% if reservation.status == "pending" %>
       <div class="rounded d-flex justify-content-around border m-2 p-2 border-primary">
@@ -53,7 +52,6 @@
     </div>
 </div>
 <div class="container">
-  <h1>My reservations</h1>
     <%@reservations.each do |reservation| %>
      <% if reservation.status == "denied" %>
       <div class="rounded d-flex justify-content-around border m-2 p-2 border-danger">
