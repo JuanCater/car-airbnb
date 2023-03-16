@@ -21,10 +21,17 @@
               <li class="nav-item  SMN_effect-48 w-25 me-4">
             <%= link_to "Reservations", reservations_path, class: "nav-link text-light" %>
           </li>
-          <form class="d-flex search me-4">
-            <input class="form-control me-2 searching" type="search" placeholder="Search cars..." aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">Search</button>
-          </form>
+          <li>
+            <%= form_with url: cars_path, method: :get, class: " d-flex search me-4  searching" do %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control me-2",
+                  placeholder: "Find a car..."
+                %>
+              <%= submit_tag "Search", class: "btn btn-outline-light" %>
+            <% end %>
+          </li>
+
 
           <li class="nav-item dropdown ms-4 me-4">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -42,10 +49,16 @@
           <li class="nav-item  SMN_effect-48 mx-4">
             <%= link_to "Login", new_user_session_path, class: "nav-link text-light" %>
           </li>
-          <form class="d-flex search me-4">
-            <input class="form-control me-2 searching" type="search" placeholder="Search cars..." aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">Search</button>
-          </form>
+          <li>
+            <%= form_with url: cars_path, method: :get, class: " d-flex search me-4  searching" do %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control me-2",
+                  placeholder: "Find a car..."
+                %>
+              <%= submit_tag "Search", class: "btn btn-outline-light" %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
