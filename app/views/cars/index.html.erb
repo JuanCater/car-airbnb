@@ -1,4 +1,4 @@
-<h1>Available Cars</h1>
+<h1 class="text-center mt-3">Available Cars</h1>
 
 <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
@@ -9,7 +9,7 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<div style="width: 100%; height: 600px;"
+<div class="mt-4 mb-5" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
