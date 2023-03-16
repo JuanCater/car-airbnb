@@ -62,6 +62,8 @@ group :development, :test do
 
 end
 
+gem "pg_search"
+
 gem "pundit"
 
 gem "cloudinary"
