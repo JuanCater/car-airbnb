@@ -36,17 +36,18 @@
           <li class="nav-item dropdown ms-4 me-4">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
 
         <% else %>
-          <li class="nav-item  SMN_effect-48">
+        <li class="nav-item  SMN_effect-48 w-25 mx-4">
+            <%= link_to "Rent", cars_path, class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item  SMN_effect-48 ms-1">
             <%= link_to "Contact", "mailto:example@example.com", class: "nav-link text-light" %>
           </li>
-          <li class="nav-item  SMN_effect-48 mx-4">
+          <li class="nav-item  SMN_effect-48 ms-4 me-5">
             <%= link_to "Login", new_user_session_path, class: "nav-link text-light" %>
           </li>
           <li>
