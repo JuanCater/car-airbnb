@@ -3,7 +3,12 @@ class CarsController < ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
 
   def index
-    @cars = policy_scope(Car)
+    if params[:query].present?
+      @cars = policy_scope(Car.search_by_brand_and_model(params[:query]))
+    else
+      @cars = policy_scope(Car)
+    end
+
     @markers = @cars.geocoded.map do |car|
       {
         lat: car.latitude,
