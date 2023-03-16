@@ -56,10 +56,10 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    authorize @reservation
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
     @reservation.destroy
-    redirect_to car_path(@reservation.car), status: :see_other
+    redirect_to reservations_path, status: :see_other
   end
 
   private

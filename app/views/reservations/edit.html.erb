@@ -1,9 +1,6 @@
 <% if @reservation.status == "pending" %>
   <h1>Edit My Reservation Request</h1>
 <% end %>
-<% if @reservation.status == "accepted" %>
-  <h1>Request to Edit My Reservation</h1>
-<% end %>
 
 <%= simple_form_for [@car, @reservation] do |f| %>
   <%= f.input :rented_from %>
