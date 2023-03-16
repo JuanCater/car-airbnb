@@ -6,7 +6,7 @@
     class: "form-control",
     placeholder: "Find a car"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn btn-dark text-light" %>
 <% end %>
 
 <div class="mt-4 mb-4" style="width: 100%; height: 500px;"
@@ -21,4 +21,6 @@
   <% end %>
 </ul>
 
-<p class="btn btn-outline-danger"><%= link_to "Create new car", new_car_path%></a>
+<p class="btn btn-dark text-light">Create new car<%= link_to "", new_car_path%></p>
+
+<p class="btn btn-dark text-light"><%= link_to "Create new car", new_car_path%></a>
