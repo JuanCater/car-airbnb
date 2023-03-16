@@ -1,8 +1,8 @@
+<h1>My reservations</h1>
 <div class="container">
-  <h1>My reservations</h1>
-
     <%@reservations.each do |reservation| %>
-      <div class="d-flex justify-content-around border border-primary p-2">
+      <% if reservation.status == "accepted" %>
+      <div class="rounded d-flex justify-content-around border m-2 p-2 border-success">
         <span class="align-self-center">
           <p>Brand: <%= reservation.car.brand %></p>
           <p>Model: <%= reservation.car.model %></p>
@@ -21,6 +21,59 @@
           <%=  cl_image_tag @car.photos.first.key, height: 300, width: 400, crop: :fill  %>
         </div>
       </div>
+    <%end %>
+    <% end %>
+    </div>
+</div>
+<div class="container">
+    <%@reservations.each do |reservation| %>
+    <% if reservation.status == "pending" %>
+      <div class="rounded d-flex justify-content-around border m-2 p-2 border-primary">
+        <span class="align-self-center">
+          <p>Brand: <%= reservation.car.brand %></p>
+          <p>Model: <%= reservation.car.model %></p>
+          <p>Year: <%= reservation.car.year %></p>
+          <p>Owner: <%= reservation.car.user.email %></p>
+          <p>Rental date: <%= reservation.rented_from%></p>
+          <p>Return date: <%= reservation.rented_until%></p>
+          <p>Status: <%= reservation.status %></p>
+          <p><%= link_to "View this car", car_path(reservation.car)%></p>
+          <% if reservation.status == "pending" || reservation.status == "denied"%>
+            <p><%= link_to "Delete this reservation", reservation_path(reservation),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+          <%end %>
+        </span>
+        <div class="d-flex justify-content-between">
+          <% @car = reservation.car  %>
+          <%=  cl_image_tag @car.photos.first.key, height: 300, width: 400, crop: :fill  %>
+        </div>
+      </div>
+      <%end %>
+    <%end %>
+    </div>
+</div>
+<div class="container">
+    <%@reservations.each do |reservation| %>
+     <% if reservation.status == "denied" %>
+      <div class="rounded d-flex justify-content-around border m-2 p-2 border-danger">
+        <span class="align-self-center">
+          <p>Brand: <%= reservation.car.brand %></p>
+          <p>Model: <%= reservation.car.model %></p>
+          <p>Year: <%= reservation.car.year %></p>
+          <p>Owner: <%= reservation.car.user.email %></p>
+          <p>Rental date: <%= reservation.rented_from%></p>
+          <p>Return date: <%= reservation.rented_until%></p>
+          <p>Status: <%= reservation.status %></p>
+          <p><%= link_to "View this car", car_path(reservation.car)%></p>
+          <% if reservation.status == "pending" || reservation.status == "denied"%>
+            <p><%= link_to "Delete this reservation", reservation_path(reservation),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+          <%end %>
+        </span>
+        <div class="d-flex justify-content-between">
+          <% @car = reservation.car  %>
+          <%=  cl_image_tag @car.photos.first.key, height: 300, width: 400, crop: :fill  %>
+        </div>
+      </div>
+      <%end %>
     <%end %>
     </div>
 </div>
