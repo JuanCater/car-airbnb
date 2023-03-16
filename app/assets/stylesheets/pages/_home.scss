@@ -3,8 +3,97 @@
   height: 85vh;
   object-fit: cover;
   margin-bottom: 50px;
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))
 }
-.carousel-caption{
-  margin-bottom: 50%;
+.container{
+  margin: 0 auto;
+}
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  box-shadow: 0 0rem 2rem rgba(0, 0, 0, 0.45);
+  border-radius: .25rem;
+  margin: 10px;
+    border: none;
+
+
+
+    & > .fab {
+     height: 50px;
+  width: 50px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+      text-decoration:none;
+  padding-top: 10px;
+  border-radius: 50px;
+  position: relative;
+  top: -25px;
+  left: 82%;
+      box-shadow: 0 2px 1rem rgba(0,0,0,.6);
+    }
+ img{
+  height: 250px;
+  max-width: 100%;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+  }
+
+  & > .card-body {
+    padding: 16px;
+
+    & > .card-title {
+      font-family: Raleway;
+      font-weight: bolder;
+      font-size: 1.2rem;
+    }
+
+    & > p {
+      text-align: justify;
+      font-family: open sans;
+      font-size: .95rem;
+
+    }
+  }
+  & > .card-footer {
+     background-color: inherit;
+  border-top: 1px solid rgba(160,160,160,0.3);
+  position: relative;
+  padding: 0px 0;
+    & > a {
+     position: relative;
+  cursor: pointer;
+      color: rgb(0, 0, 0);
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+      text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+  height: 54px;
+  line-height: 54px;
+  font-size: 15px;
+  padding: 0 28px;
+      &:hover {
+        background-color: rgb(0, 0, 0);
+        color: white;
+      }
+    }
+    }
+}
+
+.av{
+  color: rgb(33, 145, 33);
 }
