@@ -12,11 +12,14 @@
     </div>
       <ul class="navbar-nav me-4">
         <% if user_signed_in? %>
-              <li class="nav-item  SMN_effect-48">
-            <%= link_to "Reservations", reservations_path, class: "nav-link text-light" %>
+        <li class="nav-item  SMN_effect-48 mx-4">
+            <%= link_to "Rent a car", cars_path, class: "nav-link text-light" %>
           </li>
           <li class="nav-item  SMN_effect-48 mx-4">
-            <%= link_to "Cars", my_cars_cars_path, class: "nav-link text-light" %>
+            <%= link_to "Garage", my_cars_cars_path, class: "nav-link text-light" %>
+          </li>
+              <li class="nav-item  SMN_effect-48 mx-4">
+            <%= link_to "Reservations", reservations_path, class: "nav-link text-light" %>
           </li>
           <form class="d-flex search me-4">
             <input class="form-control me-2" type="search" placeholder="Search cars..." aria-label="Search">
@@ -33,9 +36,6 @@
           </li>
 
         <% else %>
-        <li class="nav-item  SMN_effect-48 mx-4">
-            <%= link_to "Cars", my_cars_cars_path, class: "nav-link text-light" %>
-          </li>
           <li class="nav-item  SMN_effect-48">
             <%= link_to "Contact", "mailto:example@example.com", class: "nav-link text-light" %>
           </li>
