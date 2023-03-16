@@ -1,24 +1,35 @@
-<h1>Available Cars</h1>
+<div class="container">
+  <h1>Available Cars</h1>
 
-<%= form_with url: cars_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a car"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-<ul>
-  <% @cars.each do |car| %>
-    <li><%= link_to "#{car.brand} #{car.model}", car_path(car)%></i>
+  <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a car"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-</ul>
 
-<p class="btn btn-outline-danger"><%= link_to "Create new car", new_car_path%></a>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <ul>
+    <% @cars.each do |car| %>
+    <div class="d-flex justify-content-between border">
+      <div>
+        <li><%= link_to "#{car.brand} #{car.model}", car_path(car)%></i>
+        <p><%= "Year: #{car.year}" %></p>
+        <p><%= "Price: $#{car.price} per day" %></p>
+      </div>
+      <div>
+        <%= cl_image_tag car.photos.first.key, height: 100, width: 100, crop: :fill %>
+      </div>
+    </div>
+    <% end %>
+  </ul>
+
+  <p class="btn btn-outline-success rounded"><%= link_to "Create new car", new_car_path%></a>
+</div>

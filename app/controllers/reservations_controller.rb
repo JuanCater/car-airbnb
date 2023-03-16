@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
   # before_action :set_movie, only: %i[new create]
   def index
     @reservations = policy_scope(Reservation)
+    @cars = Car.all
   end
 
   def show

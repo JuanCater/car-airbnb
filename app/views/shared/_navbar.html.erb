@@ -22,9 +22,17 @@
             <%= link_to "Reservations", reservations_path, class: "nav-link text-light" %>
           </li>
           <form class="d-flex search me-4">
-            <input class="form-control me-2" type="search" placeholder="Search cars..." aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">Search</button>
+            <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find a car"
+              %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+            <% end %>
           </form>
+
+
 
           <li class="nav-item dropdown ms-4 me-4">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

@@ -1,10 +1,21 @@
-<h1>My Cars</h1>
+<div class="container">
 
+  <h1>My Cars</h1>
 
-<ul>
-  <% @cars.each do |car| %>
-    <li><%= link_to car.model, car_path(car)%></i>
-  <% end %>
-</ul>
+  <ul>
+      <% @cars.each do |car| %>
+      <div class="d-flex justify-content-between border">
+        <div>
+          <p><%= link_to "#{car.brand} #{car.model}", car_path(car)%></p>
+          <p><%= "Price: $#{car.price} per day" %></p>
+          <p><%= "Year: #{car.year}" %></p>
+        </div>
+        <div>
+          <%= cl_image_tag car.photos.first.key, height: 100, width: 100, crop: :fill %>
+        </div>
+      </div>
+      <% end %>
+    </ul>
 
-<p class="btn btn-outline-primary"><%= link_to "Create new car", new_car_path%></a>
+  <p class="btn btn-outline-primary"><%= link_to "Create new car", new_car_path%></a>
+</div>
