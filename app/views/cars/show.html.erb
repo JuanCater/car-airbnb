@@ -40,18 +40,21 @@
 
 </div>
   <% if @car.user == current_user %>
-    <h1 class="text-center">Reservations for this car</h1>
+    <h1 class="text-center ">Reservations for this car</h1>
       <%@car.reservations.each do |reservation| %>
-        <div class="">
+        <div class="m-2 border-bottom">
           <p>Requested by: <%= reservation.user.email %></p>
           <p>Date of Rental: <%= reservation.rented_from%></p>
           <p>Date of return: <%= reservation.rented_until%></p>
-          <p>Status: <%= reservation.status %></p>
+
+          <p class=" <%= reservation.status == "accepted" ? 'text-success' : '' %> <%= reservation.status == "denied" ? 'text-danger' : '' %>">Status: <%= reservation.status %></p>
           <%= simple_form_for [@car, reservation] do |f| %>
-          <%=f.hidden_field :rented_from %>
-          <%= f.hidden_field :rented_until %>
-          <%= f.input :status, collection: ["pending", "accepted", "denied"] %>
-          <%= f.button :submit, class:"btn btn-dark"%>
+            <%=f.hidden_field :rented_from %>
+            <%= f.hidden_field :rented_until %>
+            <% if reservation.status == "pending" %>
+              <%= f.input :status, collection: ["pending", "accepted", "denied"] %>
+              <%= f.button :submit, class:"btn btn-dark"%>
+            <% end %>
           <% end %>
         </div>
       <%end %>
