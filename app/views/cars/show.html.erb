@@ -14,7 +14,7 @@
             <p>Year: <%= @car.year %></p>
             <p>Price per night: $<%= @car.price %></p>
             <p>Contact the owner: <%= @car.user.email %></p>
-            <%= button_to "Destroy this car", @car, method: :delete if policy(@car).destroy? %>
+            <%= button_to "Destroy this car", @car, method: :delete, class: "btn btn-dark mt-5" if policy(@car).destroy? %>
         </div>
     </span>
 
