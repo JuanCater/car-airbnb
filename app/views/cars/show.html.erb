@@ -11,6 +11,7 @@
             <p>Year: <%= @car.year %></p>
             <p>Price per night: $<%= @car.price %></p>
             <p>Contact the owner: <%= @car.user.email %></p>
+              <%= link_to "Request to reserve this car", new_car_reservation_path(@car), class: "btn btn-dark mt-4" if @car.user != current_user %>
             <%= button_to "Destroy this car", @car, method: :delete, class: "btn btn-dark mt-4" if policy(@car).destroy? %>
         </div>
     </span>
@@ -41,7 +42,7 @@
           <p class="mb-2">Requested by: <%= reservation.user.email %></p>
           <p class="mb-2">Date of Rental: <%= reservation.rented_from%></p>
           <p class="mb-2">Date of return: <%= reservation.rented_until%></p>
-          <p class="mb-2" <%= reservation.status == "accepted" ? 'text-success' : '' %> <%= reservation.status == "denied" ? 'text-danger' : '' %>">Status: <%= reservation.status %></p>
+          <p class="mb-2" <%= reservation.status == "accepted" ? 'text-success' : '' %> <%= reservation.status == "denied" ? 'text-danger' : '' %>>Status: <%= reservation.status %></p>
           <%= simple_form_for [@car, reservation] do |f| %>
             <%=f.hidden_field :rented_from %>
             <%= f.hidden_field :rented_until %>
@@ -54,5 +55,4 @@
         </div>
       <%end %>
   <%end %>
-  <%= link_to "Request to reserve this car", new_car_reservation_path(@car), class: "btn btn-dark" if @car.user != current_user %>
 </div>

@@ -1,4 +1,5 @@
 
+<div class="text-center">
 <h3 class="mt-4 ms-5">Accepted Reservations:</h3>
   <%@reservations.each do |reservation| %>
   <div>
@@ -33,6 +34,8 @@
   </div>
   <% end %>
 </div>
+
+<div class="text-center">
 <h3 class="mt-4 ms-5">Pending Reservations:</h3>
     <%@reservations.each do |reservation| %>
     <div>
@@ -67,6 +70,8 @@
       </div>
     <%end %>
 </div>
+
+<div class="text-center">
 <h3 class="mt-4 ms-5">Rejected Reservations:</h3>
     <%@reservations.each do |reservation| %>
     <div>
@@ -99,4 +104,5 @@
       <%end %>
       </div>
     <%end %>
+</div>
 </div>

@@ -1,13 +1,15 @@
-<div class="ms-5 mt-4">
-<h1>My Garage</h1>
+<div class="container">
+  <div class="text-center">
+    <div class="ms-5 mt-4">
+      <h1 class="mb-4">My Garage</h1>
 
+      <ul>
+        <% @cars.each do |car| %>
+          <li style="font-size: 20px;"><%= link_to "#{car.brand} #{car.model} #{car.year}", car_path(car), style: "text-decoration: none;", class:"text-dark" %></li>
+        <% end %>
+      </ul>
 
-<ul>
-  <% @cars.each do |car| %>
-    <li style="font-size: 20px;"><%= link_to "#{car.brand} #{car.model} #{car.year}", car_path(car), style: "text-decoration: none;", class:"text-dark" %></li>
-  <% end %>
-</ul>
-
-
-<%= link_to "Create new car", new_car_path, class: "btn btn-dark px-4"%>
+      <%= link_to "Create new car", new_car_path, class: "btn btn-dark px-4"%>
+    </div>
+  </div>
 </div>
