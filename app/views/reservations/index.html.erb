@@ -1,12 +1,12 @@
 
-<h1>My Accepted Reservations:</h1>
+<h3 class="mt-4 ms-5">Accepted Reservations:</h3>
   <%@reservations.each do |reservation| %>
   <div>
     <% @user = reservation.user %>
     <% @car = reservation.car %>
     <% @owner = reservation.car.user %>
       <% if reservation.status == "accepted" %>
-      <div class="rounded d-flex justify-content-between border m-2 p-2 border-success">
+      <div class="rounded d-flex justify-content-between border ms-5 me-5 m-2 p-2 border-success">
         <span class="align-self-center">
           <p>Brand: <%= reservation.car.brand %></p>
           <p>Model: <%= reservation.car.model %></p>
@@ -33,7 +33,7 @@
   </div>
   <% end %>
 </div>
-<h1>My Pending Reservations:</h1>
+<h3 class="mt-4 ms-5">Pending Reservations:</h3>
     <%@reservations.each do |reservation| %>
     <div>
     <% @user = reservation.user %>
@@ -67,7 +67,7 @@
       </div>
     <%end %>
 </div>
-<h1>My Rejected Reservations:</h1>
+<h3 class="mt-4 ms-5">Rejected Reservations:</h3>
     <%@reservations.each do |reservation| %>
     <div>
     <% @user = reservation.user %>
