@@ -19,28 +19,30 @@
   <div class="row">
       <% @cars.each do |car| %>
         <div class = "col-3">
-        <div class="d-flex">
-          <div class="card border-0 me-lg-4 mb-lg-0 mb-4 d-flex justify-content-center">
-            <div class="backgroundEffect">
-            </div>
-            <div class="pic"> <img class="" src='<%= cl_image_path car.photos[0].key, height: 350, width: 400, crop: :fill %>' alt="">
-            </div>
-            <div class="content">
-              <p class="h-1 mt-4"> <%= "#{car.brand} #{car.model}, #{car.year}" %></p> <p class="text-muted mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, veritatis. Eveniet in vel illo, mollitia nemo architecto, voluptates ullam molestias.</p>
-              <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
-                <div class="btn btn-primary">Read More<span class="fas fa-arrow-right"></span>
-                </div>
-                <div class="d-flex align-items-center justify-content-center foot">
-                  <p class="admin"><%= "#{car.price}/day" %></p>
+          <div class="d-flex">
+
+        <%= link_to car_path(car), class: "text-decoration-none" do %>
+            <div class="card border-0 me-lg-4 mb-lg-0 mb-4 d-flex justify-content-center">
+              <div class="backgroundEffect">
+              </div>
+              <div class="pic"> <img class="" src='<%= cl_image_path car.photos[0].key, height: 350, width: 400, crop: :fill %>' alt="">
+              </div>
+              <div class="content">
+                <p class="h-1 mt-4"> <%= "#{car.brand} #{car.model}, #{car.year}" %></p> <p class="text-muted mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, veritatis. Eveniet in vel illo, mollitia nemo architecto, voluptates ullam molestias.</p>
+                <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
+                  <div class="btn btn-primary">Read More<span class="fas fa-arrow-right"></span>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center foot">
+                    <p class="admin"><%= "#{car.price}/day" %></p>
+                  </div>
                 </div>
               </div>
             </div>
+        <% end %>
           </div>
-        </div>
-    </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
-<p class="btn btn-dark text-light">Create new car<%= link_to "", new_car_path%></p>
 
 <%= link_to "Create new car", new_car_path, class: "btn btn-dark"%>
