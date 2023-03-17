@@ -1,4 +1,4 @@
-<%= link_to "Back to all cars", cars_path, class: "btn btn-primary m-4" %>
+<%= link_to "Back to all cars", cars_path, class: "btn btn-dark m-4" %>
 
 <div class="container">
 
@@ -7,7 +7,7 @@
     <span class="align-self-center">
         <div class="text-center">
           <% if policy(@car).edit? %>
-             <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary" %>
+             <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-dark mb-4" %>
           <% end %>
             <h2><%= @car.brand %></h2>
              <p>Model: <%= @car.model %></p>
@@ -51,13 +51,13 @@
           <%=f.hidden_field :rented_from %>
           <%= f.hidden_field :rented_until %>
           <%= f.input :status, collection: ["pending", "accepted", "denied"] %>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class:"btn btn-dark"%>
           <% end %>
         </div>
       <%end %>
   <%end %>
 
-  <%= link_to "Request to reserve this car", new_car_reservation_path(@car), class: "btn btn-primary" if @car.user != current_user %>
+  <%= link_to "Request to reserve this car", new_car_reservation_path(@car), class: "btn btn-dark" if @car.user != current_user %>
 
 
 </div>
