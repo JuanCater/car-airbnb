@@ -6,7 +6,7 @@
     <% @car = reservation.car %>
     <% @owner = reservation.car.user %>
       <% if reservation.status == "accepted" %>
-      <div class="rounded d-flex justify-content-between border m-2 p-2 border-success">
+      <div class="rounded d-flex justify-content-between border ms-5 me-5 m-2 p-2 border-success">
         <span class="align-self-center">
           <p>Brand: <%= reservation.car.brand %></p>
           <p>Model: <%= reservation.car.model %></p>
