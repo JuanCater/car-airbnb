@@ -1,6 +1,10 @@
-<h1>My reservations</h1>
-<div class="container">
-    <%@reservations.each do |reservation| %>
+
+<h1>My Accepted Reservations:</h1>
+  <%@reservations.each do |reservation| %>
+  <div>
+    <% @user = reservation.user %>
+    <% @car = reservation.car %>
+    <% @owner = reservation.car.user %>
       <% if reservation.status == "accepted" %>
       <div class="rounded d-flex justify-content-between border m-2 p-2 border-success">
         <span class="align-self-center">
@@ -11,6 +15,10 @@
           <p>Rental date: <%= reservation.rented_from%></p>
           <p>Return date: <%= reservation.rented_until%></p>
           <p>Status: <%= reservation.status %></p>
+          <p>This rental is $<%= reservation.car.price %> per night for <%= (reservation.rented_until - reservation.rented_from).to_i%> days for a total cost of $<%= (reservation.rented_until - reservation.rented_from).to_i * reservation.car.price%></p>
+          <% if @user == current_user %>
+            <p><%= link_to "View the owner's profile", user_path(@owner)%></p>
+          <%end %>
           <p><%= link_to "View this car", car_path(reservation.car)%></p>
           <% if reservation.status == "pending" || reservation.status == "denied"%>
             <p><%= link_to "Delete this reservation", reservation_path(reservation),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
@@ -20,13 +28,17 @@
           <% @car = reservation.car  %>
           <%=  cl_image_tag @car.photos.first.key, height: 400, width: 600, crop: :fill  %>
         </div>
-      </div>
-    <%end %>
-    <% end %>
     </div>
+  <%end %>
+  </div>
+  <% end %>
 </div>
-<div class="container">
+<h1>My Pending Reservations:</h1>
     <%@reservations.each do |reservation| %>
+    <div>
+    <% @user = reservation.user %>
+    <% @car = reservation.car %>
+    <% @owner = reservation.car.user %>
     <% if reservation.status == "pending" %>
       <div class="rounded d-flex justify-content-between border m-2 p-2 border-primary">
         <span class="align-self-center">
@@ -37,8 +49,12 @@
           <p>Rental date: <%= reservation.rented_from%></p>
           <p>Return date: <%= reservation.rented_until%></p>
           <p>Status: <%= reservation.status %></p>
+          <p>This rental will be $<%= reservation.car.price %> per night for <%= (reservation.rented_until - reservation.rented_from).to_i%> days for a total cost of $<%= (reservation.rented_until - reservation.rented_from).to_i * reservation.car.price%></p>
+           <% if @user == current_user %>
+            <p><%= link_to "View the owner's profile", user_path(@owner)%></p>
+          <%end %>
           <p><%= link_to "View this car", car_path(reservation.car)%></p>
-          <% if reservation.status == "pending" || reservation.status == "denied"%>
+          <% if reservation.status == "pending" || reservation.status == "denied"%></p>
             <p><%= link_to "Delete this reservation", reservation_path(reservation),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
           <%end %>
         </span>
@@ -48,11 +64,15 @@
         </div>
       </div>
       <%end %>
+      </div>
     <%end %>
-    </div>
 </div>
-<div class="container">
+<h1>My Rejected Reservations:</h1>
     <%@reservations.each do |reservation| %>
+    <div>
+    <% @user = reservation.user %>
+    <% @car = reservation.car %>
+    <% @owner = reservation.car.user %>
      <% if reservation.status == "denied" %>
       <div class="rounded d-flex justify-content-between border m-2 p-2 border-danger">
         <span class="align-self-center">
@@ -63,6 +83,9 @@
           <p>Rental date: <%= reservation.rented_from%></p>
           <p>Return date: <%= reservation.rented_until%></p>
           <p>Status: <%= reservation.status %></p>
+          <% if @user == current_user %>
+            <p><%= link_to "View the owner's profile", user_path(@owner)%></p>
+          <%end %>
           <p><%= link_to "View this car", car_path(reservation.car)%></p>
           <% if reservation.status == "pending" || reservation.status == "denied"%>
             <p><%= link_to "Delete this reservation", reservation_path(reservation),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
@@ -74,6 +97,6 @@
         </div>
       </div>
       <%end %>
+      </div>
     <%end %>
-    </div>
 </div>
