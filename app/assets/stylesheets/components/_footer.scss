@@ -1,5 +1,5 @@
 #page-container {
-  position: relative;
+  position: absolute;
   min-height: 100vh;
 }
 
@@ -8,8 +8,7 @@
 }
 
 .footer{
-  position: absolute;
-  height: 2.5rem;            /* Footer height */
+  position: absolute;            /* Footer height */
   -webkit-box-shadow: 0px -2px 14px -5px rgba(0,0,0,0.39);
   -moz-box-shadow: 0px -2px 14px -5px rgba(0,0,0,0.39);
   box-shadow: 0px -2px 14px -5px rgba(0,0,0,0.39);
