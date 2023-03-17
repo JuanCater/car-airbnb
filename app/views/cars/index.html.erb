@@ -28,7 +28,7 @@
             <div class="content">
               <p class="h-1 mt-4"> <%= "#{car.brand} #{car.model}, #{car.year}" %></p> <p class="text-muted mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, veritatis. Eveniet in vel illo, mollitia nemo architecto, voluptates ullam molestias.</p>
               <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
-                <div class="btn btn-primary">Read More<span class="fas fa-arrow-right"></span>
+                <div class="btn btn-primary">Read More <%= link_to "", cars_path(car)%> <span class="fas fa-arrow-right"></span>
                 </div>
                 <div class="d-flex align-items-center justify-content-center foot">
                   <p class="admin"><%= "#{car.price}/day" %></p>
@@ -43,4 +43,4 @@
 </div>
 <p class="btn btn-dark text-light">Create new car<%= link_to "", new_car_path%></p>
 
-<p class="btn btn-dark text-light"><%= link_to "Create new car", new_car_path%></a>
+<%= link_to "Create new car", new_car_path, class: "btn btn-dark"%>

@@ -95,6 +95,7 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
 * {
     padding: 0;
     margin: 0;
@@ -227,7 +228,7 @@ p {
     background-color: $dark;
     border-radius: 25px;
     font-size: 12px;
-    border: none
+    border: none;
 }
 
 .card:hover .content .btn {
