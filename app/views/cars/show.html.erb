@@ -1,13 +1,13 @@
-<%= link_to "Back to all cars", cars_path, class: "btn btn-dark m-5" %>
+<%= link_to "Back to all cars", cars_path, class: "btn btn-dark mt-5 mx-5 mb-3" %>
 
 <div class="container">
 
 
-  <div class="d-flex justify-content-around border border-primary p-2 w-100">
+  <div class="d-flex justify-content-around border border-dark p-0 w-100">
     <span class="align-self-center">
         <div class="text-center">
           <% if policy(@car).edit? %>
-             <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary" %>
+             <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-dark mb-4" %>
           <% end %>
             <h2><%= @car.brand %></h2>
              <p>Model: <%= @car.model %></p>
