@@ -1,20 +1,15 @@
-<h1 class="text-center mt-4">Available Cars</h1>
-<div class="d-inline">
-<%= form_with url: cars_path, method: :get, class: "d-flex w-25 ms-5" do %>
+<h1 class="ms-5 mb-3 mt-4">Available Cars</h1>
+<%= form_with url: cars_path, method: :get, class: "d-flex w-25 ms-5 mb-2 " do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control searching-cars-btn-focus",
     placeholder: "Find a car..."
   %>
   <%= submit_tag "Search", class: "btn btn-dark text-light" %>
 <% end %>
-
-
 <%= link_to "Create new car", new_car_path, class: "btn btn-dark mt-2 ms-5"%>
 
-</div>
-
-<div class="mt-4 mb-4" style="width: 100%; height: 500px;"
+<div class="mt-4 mb-4" style="width: 100%; height: 450px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -49,5 +44,3 @@
     <% end %>
   </div>
 </div>
-
-<%= link_to "Create new car", new_car_path, class: "btn btn-dark"%>

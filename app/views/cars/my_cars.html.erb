@@ -1,10 +1,13 @@
-<h1>My Car Garage</h1>
+<div class="ms-5 mt-4">
+<h1>My Garage</h1>
 
 
 <ul>
   <% @cars.each do |car| %>
-    <li><%= link_to car.model, car_path(car)%></i>
+    <li style="font-size: 20px;"><%= link_to "#{car.brand} #{car.model} #{car.year}", car_path(car), style: "text-decoration: none;", class:"text-dark" %></li>
   <% end %>
 </ul>
 
-<%= link_to "Create new car", new_car_path, class: "btn btn-dark"%>
+
+<%= link_to "Create new car", new_car_path, class: "btn btn-dark px-4"%>
+</div>

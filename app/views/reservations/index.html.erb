@@ -1,5 +1,5 @@
 
-<h1>My Accepted Reservations:</h1>
+<h3 class="mt-4 ms-5">Accepted Reservations:</h3>
   <%@reservations.each do |reservation| %>
   <div>
     <% @user = reservation.user %>
@@ -33,7 +33,7 @@
   </div>
   <% end %>
 </div>
-<h1>My Pending Reservations:</h1>
+<h3 class="mt-4 ms-5">Pending Reservations:</h3>
     <%@reservations.each do |reservation| %>
     <div>
     <% @user = reservation.user %>
@@ -67,7 +67,7 @@
       </div>
     <%end %>
 </div>
-<h1>My Rejected Reservations:</h1>
+<h3 class="mt-4 ms-5">Rejected Reservations:</h3>
     <%@reservations.each do |reservation| %>
     <div>
     <% @user = reservation.user %>
